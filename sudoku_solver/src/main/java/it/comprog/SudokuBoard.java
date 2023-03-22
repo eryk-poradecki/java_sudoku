@@ -1,24 +1,18 @@
 package it.comprog;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SudokuBoard {
 
     private static final int gridSize = 9;
     private static final int boxSize = 3;
 
-    private int[][] board = new int[gridSize][gridSize];
+    private final int[][] board = new int[gridSize][gridSize];
 
-    // constructor for randomized boards
-    SudokuBoard() {
+    private final SudokuSolver sudokuSolver;
 
-    }
-
-    // constructor for initializing known boards
-    SudokuBoard(int[][] board) {
-        this.board = board;
+    SudokuBoard(SudokuSolver sudokuSolver) {
+        this.sudokuSolver = sudokuSolver;
     }
 
     public int get(int row, int col) {
@@ -76,47 +70,56 @@ public class SudokuBoard {
         return true;
     }
 
-    public boolean backtrack(int row, int col) {
-        // checks if the end of the board was reached
-        if (row == gridSize - 1 && col == gridSize) {
-            return true;
+    public int[] boxToArray(int[][] box) {
+        int[] result = new int[9];
+        for (int i = 0; i < 3; i++) {
+            System.arraycopy(box[i], 0, result, i * 3, 3);
         }
+        return result;
+    }
 
-        // checks if the end of the row was reached, switches to the next one if true
-        if (col == gridSize) {
-            row++;
-            col = 0;
-        }
-
-        // checks if the current cell is filled
-        if (get(row, col) != 0) {
-            backtrack(row, col + 1);
-        }
-
-        for (int value = 1; value < gridSize + 1; value++) {
-            if (canInsertValue(row, col, value)) {
-                set(row, col, value);
-                if (backtrack(row, col + 1)) {
-                    return true;
-                }
-
-                set(row, col, 0);
+    public boolean checkArrayValidity(int[] array) {
+        for (int i = 0; i < gridSize; i++) {
+            if (array[i] <= 0 || array[i] > 9) {
+                return false;
             }
         }
-        return false;
+        Set<Integer> s = new HashSet<>();
+        for (int i : array) {
+            if (s.contains(i)) {
+                return false;
+            }
+            s.add(i);
+        }
+        return true;
     }
 
-    void fillBoard() {
-        List<Integer> firstRow = new ArrayList<>();
-        for (int i = 1; i < gridSize + 1; i++) {
-            firstRow.add(i);
-        }
-        Collections.shuffle(firstRow);
+    public boolean checkBoardValidity() {
+        // checks if all rows and columns are valid
         for (int i = 0; i < gridSize; i++) {
-            set(0, i, firstRow.get(i));
+            if (!checkArrayValidity(getRow(i))) {
+                return false;
+            }
+            if (!checkArrayValidity(getColumn(i))) {
+                return false;
+            }
         }
 
-        backtrack(1,0);
+        // checks if all boxes are valid
+        for (int i = 0; i < gridSize; i += 3) {
+            for (int j = 0; j < gridSize; j += 3) {
+                if (!checkArrayValidity(boxToArray(getBox(i,j)))) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
+
+    public void solveGame() {
+        sudokuSolver.solve(this);
+    }
+
 
 }

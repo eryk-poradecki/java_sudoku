@@ -1,38 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ww_thu_1145_08.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise_2" beforeDir="false" />
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="Exercise 3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/BacktrackingSudokuSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2N3SXCT3X6pf1ouX6NhC0vKFjLN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/java/component_programming/sudoku_solver",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/java/component_programming/ww_thu_1145_08/sudoku_solver&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="it.comprog" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidColumn">
+    <configuration name="SudokuBoardTest.testCheckArrayValidity_checkRow_withSetValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ww_thu_1145_08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testCheckArrayValidity_checkRow_withSetValues" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidBox" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ww_thu_1145_08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testCheckBoardValidity_invalidBox" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ww_thu_1145_08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testCheckBoardValidity_invalidColumn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuBoardTest.testGetRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ww_thu_1145_08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testGetRow" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuBoardTest.testGetRow_withSetValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ww_thu_1145_08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testGetRow_withSetValues" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidColumn" />
+        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidBox" />
+        <item itemvalue="JUnit.SudokuBoardTest.testCheckArrayValidity_checkRow_withSetValues" />
+        <item itemvalue="JUnit.SudokuBoardTest.testGetRow_withSetValues" />
+        <item itemvalue="JUnit.SudokuBoardTest.testGetRow" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,10 +177,32 @@
       <option name="presentableId" value="Default" />
       <updated>1678891311005</updated>
       <workItem from="1678891314463" duration="17000" />
+      <workItem from="1678892480907" duration="428000" />
+      <workItem from="1679479735563" duration="417000" />
+      <workItem from="1679480951721" duration="250000" />
+      <workItem from="1679481212830" duration="934000" />
+      <workItem from="1679482161337" duration="4677000" />
+      <workItem from="1679487269397" duration="574000" />
+      <workItem from="1679488146941" duration="1638000" />
+      <workItem from="1679490049935" duration="707000" />
+      <workItem from="1679490859541" duration="262000" />
     </task>
+    <task id="LOCAL-00001" summary="Exercise 2">
+      <created>1678892610177</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678892610177</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Exercise 2" />
+    <MESSAGE value="Exercise 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exercise 3" />
   </component>
 </project>
