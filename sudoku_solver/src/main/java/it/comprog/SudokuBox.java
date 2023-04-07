@@ -2,7 +2,7 @@ package it.comprog;
 
 import static it.comprog.SudokuUtils.boxSize;
 
-public class SudokuBox extends SudokuSubGrid implements SudokuSubscriber{
+public class SudokuBox extends SudokuSubGrid implements SudokuSubscriber {
 
     SudokuBox(SudokuField[] sudokuFields) {
         super(sudokuFields);

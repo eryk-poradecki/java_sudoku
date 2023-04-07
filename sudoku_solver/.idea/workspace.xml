@@ -7,26 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="Exercise 3">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuColumn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubGrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: Added new classes and subscriber interface for observer dp, started working on unit tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuSubGridTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubGrid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -90,9 +78,9 @@
       <recent name="it.comprog" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SudokuBoardTest.testGetRow_withSetValues (1)">
-    <configuration name="SudokuBoardTest.testCheckArrayValidity_checkRow_withSetValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ww_thu_1145_08" />
+  <component name="RunManager" selected="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidBox (1)">
+    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SudokuProject" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.comprog.*" />
@@ -101,14 +89,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="it.comprog" />
       <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
-      <option name="METHOD_NAME" value="testCheckArrayValidity_checkRow_withSetValues" />
+      <option name="METHOD_NAME" value="testCheckBoardValidity_invalidArray" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidBox" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ww_thu_1145_08" />
+    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidBox (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SudokuProject" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.comprog.*" />
@@ -139,6 +127,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SudokuBoardTest.testGetBox_withSetValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SudokuProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
+      <option name="METHOD_NAME" value="testGetBox_withSetValues" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SudokuBoardTest.testGetRow_withSetValues (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SudokuProject" />
       <extension name="coverage">
@@ -155,29 +159,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SudokuBoardTest.testGetRow_withSetValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ww_thu_1145_08" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
-      <option name="METHOD_NAME" value="testGetRow_withSetValues" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidBox (1)" />
+        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidArray" />
+        <item itemvalue="JUnit.SudokuBoardTest.testGetBox_withSetValues" />
         <item itemvalue="JUnit.SudokuBoardTest.testGetRow_withSetValues (1)" />
         <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidColumn" />
-        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidBox" />
-        <item itemvalue="JUnit.SudokuBoardTest.testCheckArrayValidity_checkRow_withSetValues" />
-        <item itemvalue="JUnit.SudokuBoardTest.testGetRow_withSetValues" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +188,7 @@
       <workItem from="1679490049935" duration="707000" />
       <workItem from="1679490859541" duration="575000" />
       <workItem from="1680088541282" duration="278000" />
-      <workItem from="1680855991145" duration="5165000" />
+      <workItem from="1680855991145" duration="9642000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -216,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679491259482</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: Added new classes and subscriber interface for observer dp, started working on unit tests">
+      <created>1680861511389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680861511389</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +220,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Exercise 2" />
     <MESSAGE value="Exercise 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exercise 3" />
+    <MESSAGE value="feat: Added new classes and subscriber interface for observer dp, started working on unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added new classes and subscriber interface for observer dp, started working on unit tests" />
   </component>
 </project>

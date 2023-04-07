@@ -1,8 +1,10 @@
 package it.comprog;
 
 import java.util.*;
-import static it.comprog.SudokuUtils.gridSize;
+
 import static it.comprog.SudokuUtils.boxSize;
+import static it.comprog.SudokuUtils.gridSize;
+
 
 public class SudokuBoard {
 
@@ -14,7 +16,7 @@ public class SudokuBoard {
 
     SudokuBoard(SudokuSolver sudokuSolver) {
         for (int i = 0; i < gridSize; i++) {
-            for (int j = 0; j < gridSize; j ++) {
+            for (int j = 0; j < gridSize; j++) {
                 board[i][j] = new SudokuField();
             }
         }
@@ -32,7 +34,7 @@ public class SudokuBoard {
 
     public SudokuRow getRow(int row) {
         SudokuField[] sudokuFields = new SudokuField[gridSize];
-        for (int i = 0; i < gridSize; i ++) {
+        for (int i = 0; i < gridSize; i++) {
             sudokuFields[i] = this.board[i][row];
         }
 
@@ -43,7 +45,7 @@ public class SudokuBoard {
 
     public SudokuColumn getColumn(int col) {
         SudokuField[] sudokuFields = new SudokuField[gridSize];
-        for (int i = 0; i < gridSize; i ++){
+        for (int i = 0; i < gridSize; i++) {
             sudokuFields[i] = this.board[col][i];
         }
         SudokuColumn sudokuColumn = new SudokuColumn(sudokuFields);
@@ -116,7 +118,7 @@ public class SudokuBoard {
         sudokuSubscribers.add(sub);
     }
 
-    private void unsubscribe(SudokuSubGrid subGrid){
+    public void unsubscribe(SudokuSubGrid subGrid) {
         for (Map.Entry<SudokuSubscriber, Integer> sub : sudokuSubscribers) {
             if (sub.getKey() == subGrid) {
                 sudokuSubscribers.remove(sub);

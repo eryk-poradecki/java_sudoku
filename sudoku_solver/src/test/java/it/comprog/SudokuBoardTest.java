@@ -8,16 +8,18 @@ class SudokuBoardTest {
 
     private static final int boxSize = 3;
 
-//    private SudokuBoard swapColumns(SudokuBoard solvedSudokuBoard){
-//        int[] temp4Col = solvedSudokuBoard.getColumn(4);
-//        int[] temp6Col = solvedSudokuBoard.getColumn(6);
-//        for (int i = 0; i < gridSize; i++){
-//            solvedSudokuBoard.set(i,4, temp6Col[i]);
-//            solvedSudokuBoard.set(i,6, temp4Col[i]);
-//        }
-//        return solvedSudokuBoard;
-//    }
-//
+    private SudokuBoard swapColumns(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        sudokuBoard.solveGame();
+        SudokuColumn temp4Col = sudokuBoard.getColumn(4);
+        SudokuColumn temp6Col = sudokuBoard.getColumn(6);
+        for (int i = 0; i < gridSize; i++){
+            sudokuBoard.set(4,i, temp6Col.get(i).getFieldValue());
+            sudokuBoard.set(6,i, temp4Col.get(i).getFieldValue());
+        }
+        return sudokuBoard;
+    }
+
     @Test
     public void testGet_withoutSetValue() {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
@@ -66,94 +68,141 @@ class SudokuBoardTest {
             assertEquals(expectedColumn.get(i).getFieldValue(), sudokuBoard.getColumn(6).get(i).getFieldValue());
         }
     }
-//
-//    @Test
-//    public void testGetBox_withSetValues(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        int[][] expectedBox = { {4, 6, 8},
-//                              {9, 7, 2},
-//                              {3, 1, 5} };
-//        for (int i = 0; i < boxSize; i++){
-//            for (int j = 0; j < boxSize; j++){
-//                sudokuBoard.set(i, j, expectedBox[i][j]);
-//            }
-//
-//        }
-//        assertArrayEquals(expectedBox, sudokuBoard.getBox(2,1));
-//    }
-//    @Test
-//    public void testCheckArrayValidity_invalidArray(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        sudokuBoard.solveGame();
-//        sudokuBoard.set(0,4,10);
-//        assertFalse(sudokuBoard.checkArrayValidity(sudokuBoard.getColumn(4)));
-//        sudokuBoard.set(4,0,-10);
-//        assertFalse(sudokuBoard.checkArrayValidity(sudokuBoard.getRow(4)));
-//
-//    }
-//    @Test
-//    public void testCheckArrayValidity_checkRow_withSetValues(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        for (int i = 0; i < gridSize; i++){
-//            sudokuBoard.set(3, i, i + 1);
-//        }
-//        assertTrue(sudokuBoard.checkArrayValidity(sudokuBoard.getRow(3)));
-//        sudokuBoard.set(3,4,9);
-//        assertFalse(sudokuBoard.checkArrayValidity(sudokuBoard.getRow(3)));
-//    }
-//
-//    @Test
-//    public void testCheckArrayValidity_checkColumn_withSetValues(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        for (int i = 0; i < gridSize; i++){
-//            sudokuBoard.set(i, 6, i + 1);
-//        }
-//        assertTrue(sudokuBoard.checkArrayValidity(sudokuBoard.getColumn(6)));
-//        sudokuBoard.set(1,6,9);
-//        assertFalse(sudokuBoard.checkArrayValidity(sudokuBoard.getColumn(6)));
-//    }
-//
-//    @Test
-//    public void testCheckArrayValidity_checkBox_withSetValues(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        for(int i = 0; i < boxSize; i++) {
-//            for(int j = 0; j < boxSize; j++) {
-//               sudokuBoard.set(i, j, i * 3 + j + 1);
-//            }
-//        }
-//        assertTrue(sudokuBoard.checkArrayValidity(sudokuBoard.boxToArray(sudokuBoard.getBox(1,2))));
-//        sudokuBoard.set(1,2,9);
-//        assertFalse(sudokuBoard.checkBoardValidity());
-//    }
-//
-//    @Test
-//    public void testCheckBoardValidity_emptyBoard(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        assertFalse(sudokuBoard.checkBoardValidity());
-//    }
-//
-//    @Test
-//    public void testCheckBoardValidity_invalidRow(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        sudokuBoard.solveGame();
-//        sudokuBoard.set(0,3,sudokuBoard.get(0,5));
-//        assertFalse(sudokuBoard.checkBoardValidity());
-//    }
-//
-//    @Test
-//    public void testCheckBoardValidity_invalidColumn(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        sudokuBoard.solveGame();
-//        sudokuBoard.set(2,0,sudokuBoard.get(5,0));
-//        assertFalse(sudokuBoard.checkBoardValidity());
-//    }
-//
-//    @Test
-//    public void testCheckBoardValidity_invalidBox(){
-//        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        SudokuBoard swappedBoard;
-//        sudokuBoard.solveGame();
-//        swappedBoard = swapColumns(sudokuBoard);
-//        assertFalse(swappedBoard.checkBoardValidity());
-//    }
+
+    @Test
+    public void testGetBox_withSetValues() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        int[] expectedValues = {4, 6, 8, 9, 7, 2, 3, 1, 5};
+        SudokuField[] expectedFields = new SudokuField[gridSize];
+
+        for (int i = 0; i < boxSize; i++) {
+            for (int j = 0; j < boxSize; j ++) {
+                sudokuBoard.set(i,j, expectedValues[i * boxSize + j]);
+                expectedFields[i * boxSize + j] = new SudokuField(expectedValues[i * boxSize + j]);
+            }
+        }
+
+        SudokuBox expectedBox = new SudokuBox(expectedFields);
+
+        for (int i = 0; i < gridSize; i ++) {
+            assertEquals(expectedBox.get(i).getFieldValue(), sudokuBoard.getBox(0,0).get(i).getFieldValue());
+        }
+    }
+
+    @Test
+    public void testCheckBoardValidity_checkRow_withSetValues(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < gridSize; i++){
+            sudokuBoard.set(3, i, i + 1);
+        }
+        assertTrue(sudokuBoard.checkBoardValidity());
+        sudokuBoard.set(3,4,9);
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_checkColumn_withSetValues(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < gridSize; i++){
+            sudokuBoard.set(i, 6, i + 1);
+        }
+        assertTrue(sudokuBoard.checkBoardValidity());
+        sudokuBoard.set(1,6,9);
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_checkBox_withSetValues(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < boxSize; i++) {
+            for(int j = 0; j < boxSize; j++) {
+               sudokuBoard.set(i, j, i * 3 + j + 1);
+            }
+        }
+        assertTrue(sudokuBoard.checkBoardValidity());
+        sudokuBoard.set(1,2,9);
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_checkBox_invalidValues(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < boxSize; i++) {
+            for (int j = 0; j < boxSize; j++){
+                sudokuBoard.set(i,j, i * boxSize + j + 1);
+            }
+        }
+        sudokuBoard.set(0,0,9);
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_emptyBoard(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        assertTrue(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_invalidRow(){
+        SudokuBoard sudoku = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < gridSize; i++) {
+            sudoku.set(i, 0, i + 1);
+        }
+        sudoku.set(0, 0, 2);
+        assertFalse(sudoku.checkBoardValidity());
+        sudoku.set(0, 0, 1);
+        assertTrue(sudoku.checkBoardValidity());
+
+    }
+
+    @Test
+    public void testCheckBoardValidity_invalidColumn(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        sudokuBoard.solveGame();
+        sudokuBoard.set(2,0,sudokuBoard.get(5,0));
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCheckBoardValidity_invalidBox(){
+        SudokuBoard sudokuBoard = swapColumns();
+        assertFalse(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testNotify(){
+
+        SudokuBoard sudoku = new SudokuBoard(new BacktrackingSudokuSolver());
+
+        SudokuRow row = sudoku.getRow(1);
+        SudokuColumn column = sudoku.getColumn(1);
+        SudokuBox box = sudoku.getBox(0, 0);
+        SudokuBox box2 = sudoku.getBox(8, 8);
+
+        assertTrue(row.isValid());
+        assertTrue(column.isValid());
+        assertTrue(box.isValid());
+        assertTrue(box2.isValid());
+
+        sudoku.set(0, 1, 1);
+        sudoku.set(1, 0, 1);
+        sudoku.set(1, 1, 1);
+
+        assertFalse(row.isValid());
+        assertFalse(column.isValid());
+        assertFalse(box.isValid());
+        assertTrue(box2.isValid());
+
+        sudoku.unsubscribe(row);
+        sudoku.unsubscribe(row);
+        sudoku.unsubscribe(column);
+        sudoku.unsubscribe(box);
+
+        sudoku.set(0, 1, 0);
+        sudoku.set(1, 0, 0);
+
+        assertFalse(row.isValid());
+        assertFalse(column.isValid());
+        assertFalse(box.isValid());
+    }
 }

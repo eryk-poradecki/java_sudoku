@@ -15,7 +15,7 @@ public class SudokuSubGrid {
         verify();
     }
 
-    public SudokuField get (int n) {
+    public SudokuField get(int n) {
         return sudokuFields[n].clone();
     }
 

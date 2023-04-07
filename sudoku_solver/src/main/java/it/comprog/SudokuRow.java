@@ -8,7 +8,7 @@ public class SudokuRow extends SudokuSubGrid implements SudokuSubscriber {
 
     @Override
     public void update(int col, int row, int subGrid) {
-        if (subGrid == row){
+        if (subGrid == row) {
             verify();
         }
     }
