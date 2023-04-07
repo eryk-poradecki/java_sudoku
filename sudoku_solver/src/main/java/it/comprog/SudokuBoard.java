@@ -1,50 +1,68 @@
 package it.comprog;
 
 import java.util.*;
+import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.SudokuUtils.boxSize;
 
 public class SudokuBoard {
 
-    private static final int gridSize = 9;
-    private static final int boxSize = 3;
-
-    private final int[][] board = new int[gridSize][gridSize];
+    private final SudokuField[][] board = new SudokuField[gridSize][gridSize];
 
     private final SudokuSolver sudokuSolver;
 
+    private List<Map.Entry<SudokuSubscriber, Integer>> sudokuSubscribers = new ArrayList<>();
+
     SudokuBoard(SudokuSolver sudokuSolver) {
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j ++) {
+                board[i][j] = new SudokuField();
+            }
+        }
         this.sudokuSolver = sudokuSolver;
     }
 
-    public int get(int row, int col) {
-        return board[row][col];
+    public int get(int col, int row) {
+        return board[col][row].getFieldValue();
     }
 
-    public void set(int row, int col, int value) {
-        board[row][col] = value;
+    public void set(int col, int row, int value) {
+        board[col][row].setFieldValue(value);
+        notifySubscribers(col, row);
     }
 
-    public int[] getRow(int row) {
-        return board[row].clone();
+    public SudokuRow getRow(int row) {
+        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        for (int i = 0; i < gridSize; i ++) {
+            sudokuFields[i] = this.board[i][row];
+        }
+
+        SudokuRow sudokuRow = new SudokuRow(sudokuFields);
+        subscribe(sudokuRow, row);
+        return sudokuRow;
     }
 
-    public int[] getColumn(int col) {
-       int[] column = new int [gridSize];
-       for (int i = 0; i < gridSize; i++) {
-           column[i] = get(i, col);
-       }
-       return column;
+    public SudokuColumn getColumn(int col) {
+        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        for (int i = 0; i < gridSize; i ++){
+            sudokuFields[i] = this.board[col][i];
+        }
+        SudokuColumn sudokuColumn = new SudokuColumn(sudokuFields);
+        subscribe(sudokuColumn, col);
+        return sudokuColumn;
     }
 
-    public int[][] getBox(int row, int col) {
-        int boxRow = row - row % 3;
-        int boxCol = col - col % 3;
-        int[][] box = new int [boxSize][boxSize];
+    public SudokuBox getBox(int col, int row) {
+        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        int boxCol = col - col % boxSize;
+        int boxRow = row - row % boxSize;
         for (int i = 0; i < boxSize; i++) {
             for (int j = 0; j < boxSize; j++) {
-                box[i][j] = get(i + boxRow, j + boxCol);
+                sudokuFields[i * boxSize + j] = this.board[i + boxCol][j + boxRow];
             }
         }
-        return box;
+        SudokuBox sudokuBox = new SudokuBox(sudokuFields);
+        subscribe(sudokuBox, boxRow * 3 + boxCol);
+        return sudokuBox;
     }
 
     // checks if a given value can be inserted in a cell
@@ -70,37 +88,13 @@ public class SudokuBoard {
         return true;
     }
 
-    public int[] boxToArray(int[][] box) {
-        int[] result = new int[9];
-        for (int i = 0; i < 3; i++) {
-            System.arraycopy(box[i], 0, result, i * 3, 3);
-        }
-        return result;
-    }
-
-    public boolean checkArrayValidity(int[] array) {
-        for (int i = 0; i < gridSize; i++) {
-            if (array[i] <= 0 || array[i] > 9) {
-                return false;
-            }
-        }
-        Set<Integer> s = new HashSet<>();
-        for (int i : array) {
-            if (s.contains(i)) {
-                return false;
-            }
-            s.add(i);
-        }
-        return true;
-    }
-
     public boolean checkBoardValidity() {
         // checks if all rows and columns are valid
         for (int i = 0; i < gridSize; i++) {
-            if (!checkArrayValidity(getRow(i))) {
+            if (!getRow(i).isValid()) {
                 return false;
             }
-            if (!checkArrayValidity(getColumn(i))) {
+            if (!getColumn(i).isValid()) {
                 return false;
             }
         }
@@ -108,13 +102,33 @@ public class SudokuBoard {
         // checks if all boxes are valid
         for (int i = 0; i < gridSize; i += 3) {
             for (int j = 0; j < gridSize; j += 3) {
-                if (!checkArrayValidity(boxToArray(getBox(i,j)))) {
+                if (!getBox(i,j).isValid()) {
                     return false;
                 }
             }
         }
 
         return true;
+    }
+
+    private void subscribe(SudokuSubscriber subscriber, int subGrid) {
+        Map.Entry<SudokuSubscriber, Integer> sub = new AbstractMap.SimpleEntry<>(subscriber, subGrid);
+        sudokuSubscribers.add(sub);
+    }
+
+    private void unsubscribe(SudokuSubGrid subGrid){
+        for (Map.Entry<SudokuSubscriber, Integer> sub : sudokuSubscribers) {
+            if (sub.getKey() == subGrid) {
+                sudokuSubscribers.remove(sub);
+                return;
+            }
+        }
+    }
+
+    private void notifySubscribers(int x, int y) {
+        for (Map.Entry<SudokuSubscriber, Integer> sub : sudokuSubscribers) {
+            sub.getKey().update(x, y, sub.getValue());
+        }
     }
 
     public void solveGame() {
