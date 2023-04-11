@@ -26,6 +26,20 @@ class SudokuFieldTest {
     }
 
     @Test
+    void testEquals_invalidClass(){
+        SudokuField sudokuField = new SudokuField();
+
+        assertFalse(sudokuField.equals(4));
+    }
+
+    @Test
+    void testEquals_nullValue(){
+        SudokuField sudokuField = new SudokuField();
+
+        assertFalse(sudokuField.equals(null));
+    }
+
+    @Test
     void testClone() {
         SudokuField sudokuField = new SudokuField();
         SudokuField clonedField = sudokuField.clone();

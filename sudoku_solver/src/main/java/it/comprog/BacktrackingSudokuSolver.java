@@ -8,9 +8,9 @@ import static it.comprog.SudokuUtils.gridSize;
 
 public class BacktrackingSudokuSolver implements SudokuSolver {
 
-    public boolean backtrack(int row, int col, SudokuBoard sudokuBoard) {
+    public boolean backtrack(int col, int row, SudokuBoard sudokuBoard) {
         // checks if the end of the board was reached
-        if (row == gridSize - 1 && col == gridSize) {
+        if (col == gridSize && row == gridSize - 1) {
             return true;
         }
 
@@ -21,18 +21,18 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
         }
 
         // checks if the current cell is filled
-        if (sudokuBoard.get(row, col) != 0) {
-            backtrack(row, col + 1, sudokuBoard);
+        if (sudokuBoard.get(col, row) != 0) {
+            backtrack(col + 1, row, sudokuBoard);
         }
 
-        for (int value = 1; value < gridSize + 1; value++) {
-            if (sudokuBoard.canInsertValue(row, col, value)) {
-                sudokuBoard.set(row, col, value);
-                if (backtrack(row, col + 1, sudokuBoard)) {
+        for (int value = 1; value <= gridSize; value++) {
+            if (sudokuBoard.canInsertValue(col, row, value)) {
+                sudokuBoard.set(col, row, value);
+                if (backtrack(col + 1, row, sudokuBoard)) {
                     return true;
                 }
 
-                sudokuBoard.set(row, col, 0);
+                sudokuBoard.set(col, row, 0);
             }
         }
         return false;

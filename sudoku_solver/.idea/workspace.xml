@@ -7,18 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: Added new classes and subscriber interface for observer dp, started working on unit tests">
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: changed static arrays to Lists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/BacktrackingSudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/BacktrackingSudokuSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuSubGridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuSubGridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +75,7 @@
       <recent name="it.comprog" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SudokuBoardTest">
+  <component name="RunManager" selected="JUnit.BacktrackingSudokuSolverTest">
     <configuration name="BacktrackingSudokuSolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SudokuProject" />
       <extension name="coverage">
@@ -97,6 +91,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BacktrackingSudokuSolverTest.testCheckBoardValidity_afterSolving" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SudokuProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.BacktrackingSudokuSolverTest" />
+      <option name="METHOD_NAME" value="testCheckBoardValidity_afterSolving" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SudokuBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SudokuProject" />
       <extension name="coverage">
@@ -108,22 +118,6 @@
       <option name="PACKAGE_NAME" value="it.comprog" />
       <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidBox" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SudokuProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
-      <option name="METHOD_NAME" value="testCheckBoardValidity_invalidBox" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,9 +155,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SudokuBoardTest" />
         <item itemvalue="JUnit.BacktrackingSudokuSolverTest" />
-        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidBox" />
+        <item itemvalue="JUnit.BacktrackingSudokuSolverTest.testCheckBoardValidity_afterSolving" />
+        <item itemvalue="JUnit.SudokuBoardTest" />
         <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidColumn" />
         <item itemvalue="JUnit.SudokuFieldTest" />
       </list>
@@ -191,7 +185,7 @@
       <workItem from="1680855991145" duration="9642000" />
       <workItem from="1680879567816" duration="563000" />
       <workItem from="1680956783916" duration="933000" />
-      <workItem from="1681200917675" duration="6931000" />
+      <workItem from="1681200917675" duration="10144000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -214,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680861511389</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: changed static arrays to Lists">
+      <created>1681208070800</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681208070800</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +236,18 @@
     <MESSAGE value="Exercise 2" />
     <MESSAGE value="Exercise 3" />
     <MESSAGE value="feat: Added new classes and subscriber interface for observer dp, started working on unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Added new classes and subscriber interface for observer dp, started working on unit tests" />
+    <MESSAGE value="feat: changed static arrays to Lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: changed static arrays to Lists" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

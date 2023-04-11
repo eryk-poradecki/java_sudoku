@@ -12,18 +12,6 @@ class SudokuBoardTest {
 
     private static final int boxSize = 3;
 
-    private SudokuBoard swapColumns(){
-        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        sudokuBoard.solveGame();
-        SudokuColumn temp4Col = sudokuBoard.getColumn(4);
-        SudokuColumn temp6Col = sudokuBoard.getColumn(6);
-        for (int i = 0; i < gridSize; i++){
-            sudokuBoard.set(4,i, temp6Col.get(i).getFieldValue());
-            sudokuBoard.set(6,i, temp4Col.get(i).getFieldValue());
-        }
-        return sudokuBoard;
-    }
-
     @Test
     public void testGet_withoutSetValue() {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
@@ -34,6 +22,7 @@ class SudokuBoardTest {
     public void testGet_withSetValue() {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         sudokuBoard.set(3,4,7);
+        sudokuBoard.set(3,4,7); //set twice to cover an if statement
         assertEquals(7,sudokuBoard.get(3,4));
     }
 
@@ -160,15 +149,35 @@ class SudokuBoardTest {
     @Test
     public void testCheckBoardValidity_invalidColumn(){
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        sudokuBoard.solveGame();
-        sudokuBoard.set(2,0,sudokuBoard.get(5,0));
+        for (int i = 0; i < gridSize; i++) {
+            sudokuBoard.set(0, i, i + 1);
+        }
+        sudokuBoard.set(0, 0, 2);
         assertFalse(sudokuBoard.checkBoardValidity());
+        sudokuBoard.set(0, 0, 1);
+        assertTrue(sudokuBoard.checkBoardValidity());
     }
 
     @Test
     public void testCheckBoardValidity_invalidBox(){
-        SudokuBoard sudokuBoard = swapColumns();
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 0; i < boxSize; i++) {
+            for (int j = 0; j < boxSize; j++) {
+                sudokuBoard.set(i, j, i * boxSize + j + 1);
+            }
+        }
+        sudokuBoard.set(1, 1, 9);
         assertFalse(sudokuBoard.checkBoardValidity());
+        sudokuBoard.set(1, 1, 5);
+        assertTrue(sudokuBoard.checkBoardValidity());
+    }
+
+    @Test
+    public void testCanInsertValue_validNumbers(){
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        for (int i = 1; i <= gridSize; i++) {
+            assertTrue(sudokuBoard.canInsertValue(0,0,i));
+        }
     }
 
     @Test
@@ -195,6 +204,7 @@ class SudokuBoardTest {
         assertFalse(box.isValid());
         assertTrue(box2.isValid());
 
+        sudoku.unsubscribe(row);
         sudoku.unsubscribe(row);
         sudoku.unsubscribe(column);
         sudoku.unsubscribe(box);
