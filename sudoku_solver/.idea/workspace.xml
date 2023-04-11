@@ -7,12 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: changed static arrays to Lists">
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="fix: corrected tests to get 100% coverage, corrected wrong row/column arguments in backtracking algorithm">
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/BacktrackingSudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/BacktrackingSudokuSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/comprog/SudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +182,7 @@
       <workItem from="1680855991145" duration="9642000" />
       <workItem from="1680879567816" duration="563000" />
       <workItem from="1680956783916" duration="933000" />
-      <workItem from="1681200917675" duration="10144000" />
+      <workItem from="1681200917675" duration="11170000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -215,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681208070800</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix: corrected tests to get 100% coverage, corrected wrong row/column arguments in backtracking algorithm">
+      <created>1681211640510</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681211640510</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,17 +241,7 @@
     <MESSAGE value="Exercise 3" />
     <MESSAGE value="feat: Added new classes and subscriber interface for observer dp, started working on unit tests" />
     <MESSAGE value="feat: changed static arrays to Lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: changed static arrays to Lists" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix: corrected tests to get 100% coverage, corrected wrong row/column arguments in backtracking algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: corrected tests to get 100% coverage, corrected wrong row/column arguments in backtracking algorithm" />
   </component>
 </project>

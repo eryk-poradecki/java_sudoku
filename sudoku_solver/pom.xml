@@ -8,6 +8,13 @@
     <artifactId>SudokuProject</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
             <id>234793</id>
