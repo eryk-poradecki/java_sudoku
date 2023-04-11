@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="fix: moved license to the root dir">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +188,7 @@
       <workItem from="1680956783916" duration="933000" />
       <workItem from="1681200917675" duration="11563000" />
       <workItem from="1681212771726" duration="314000" />
-      <workItem from="1681213772924" duration="28000" />
+      <workItem from="1681213772924" duration="577000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -246,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681212980293</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: moved license to the root dir">
+      <created>1681213817736</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681213817736</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

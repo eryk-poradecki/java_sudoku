@@ -1,6 +1,6 @@
 package it.comprog;
 
-public class SudokuField implements Cloneable {
+public class SudokuField {
 
     private int value;
 
@@ -22,7 +22,6 @@ public class SudokuField implements Cloneable {
         }
     }
 
-    @Override
     public SudokuField clone() {
         SudokuField clonedField = new SudokuField();
         clonedField.setFieldValue(getFieldValue());
