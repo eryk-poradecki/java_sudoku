@@ -1,18 +1,23 @@
 package it.comprog;
 
+import java.util.List;
+
 import static it.comprog.SudokuUtils.boxSize;
 
 public class SudokuBox extends SudokuSubGrid implements SudokuSubscriber {
 
-    SudokuBox(SudokuField[] sudokuFields) {
+    SudokuBox(List<SudokuField> sudokuFields) {
         super(sudokuFields);
     }
 
     @Override
-    public void update(int col, int row, int subGrid) {
-        col = col - col % boxSize;
-        row = row - row % boxSize;
-        if (subGrid == (row * 3 + col)) {
+    public void update(int col, int row, int subGrid, int value) {
+        int boxCol = col - col % boxSize;
+        int boxRow = row - row % boxSize;
+        if (subGrid == boxRow * 3 + boxCol) {
+            int i = row % boxSize * 3 + col % boxSize;
+
+            set(i, value);
             verify();
         }
     }

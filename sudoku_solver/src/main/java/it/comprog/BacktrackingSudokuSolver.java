@@ -1,12 +1,12 @@
 package it.comprog;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class BacktrackingSudokuSolver implements SudokuSolver {
+import static it.comprog.SudokuUtils.gridSize;
 
-    private final int gridSize = 9;
+public class BacktrackingSudokuSolver implements SudokuSolver {
 
     public boolean backtrack(int row, int col, SudokuBoard sudokuBoard) {
         // checks if the end of the board was reached
@@ -39,13 +39,13 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     }
 
     private void setInitialRow(SudokuBoard sudokuBoard) {
-        List<Integer> firstRow = new ArrayList<>();
-        for (int i = 1; i < gridSize + 1; i++) {
-            firstRow.add(i);
+        List<Integer> firstRow = Arrays.asList(new Integer[gridSize]);
+        for (int i = 0; i < gridSize; i++) {
+            firstRow.set(i, i + 1);
         }
         Collections.shuffle(firstRow);
         for (int i = 0; i < gridSize; i++) {
-            sudokuBoard.set(0, i, firstRow.get(i));
+            sudokuBoard.set(i, 0, firstRow.get(i));
         }
     }
 

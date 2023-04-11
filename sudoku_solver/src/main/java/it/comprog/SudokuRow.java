@@ -1,14 +1,17 @@
 package it.comprog;
 
+import java.util.List;
+
 public class SudokuRow extends SudokuSubGrid implements SudokuSubscriber {
 
-    SudokuRow(SudokuField[] sudokuFields) {
+    SudokuRow(List<SudokuField> sudokuFields) {
         super(sudokuFields);
     }
 
     @Override
-    public void update(int col, int row, int subGrid) {
+    public void update(int col, int row, int subGrid, int value) {
         if (subGrid == row) {
+            set(col, value);
             verify();
         }
     }

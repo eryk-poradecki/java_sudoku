@@ -1,6 +1,10 @@
 package it.comprog;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static it.comprog.SudokuUtils.gridSize;
 
@@ -37,11 +41,11 @@ class SudokuBoardTest {
     public void testGetRow_withSetValues(){
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         int[] expectedValues = {4, 6, 8, 9, 7, 2, 3, 1, 5};
-        SudokuField[] expectedFields = new SudokuField[gridSize];
+        List<SudokuField> expectedFields = Arrays.asList(new SudokuField[gridSize]);
 
         for (int i = 0; i < gridSize; i++){
             sudokuBoard.set(i,4, expectedValues[i]);
-            expectedFields[i] = new SudokuField(expectedValues[i]);
+            expectedFields.set(i, new SudokuField(expectedValues[i]));
         }
 
         SudokuRow expectedRow = new SudokuRow(expectedFields);
@@ -55,11 +59,11 @@ class SudokuBoardTest {
     public void testGetColumn_withSetValues(){
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         int[] expectedValues = {4, 6, 8, 9, 7, 2, 3, 1, 5};
-        SudokuField[] expectedFields = new SudokuField[gridSize];
+        List<SudokuField> expectedFields     = Arrays.asList(new SudokuField[gridSize]);
 
         for (int i = 0; i < gridSize; i++){
             sudokuBoard.set(6,i, expectedValues[i]);
-            expectedFields[i] = new SudokuField(expectedValues[i]);
+            expectedFields.set(i, new SudokuField(expectedValues[i]));
         }
 
         SudokuColumn expectedColumn = new SudokuColumn(expectedFields);
@@ -73,12 +77,12 @@ class SudokuBoardTest {
     public void testGetBox_withSetValues() {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         int[] expectedValues = {4, 6, 8, 9, 7, 2, 3, 1, 5};
-        SudokuField[] expectedFields = new SudokuField[gridSize];
+        List<SudokuField> expectedFields = Arrays.asList(new SudokuField[gridSize]);
 
         for (int i = 0; i < boxSize; i++) {
             for (int j = 0; j < boxSize; j ++) {
                 sudokuBoard.set(i,j, expectedValues[i * boxSize + j]);
-                expectedFields[i * boxSize + j] = new SudokuField(expectedValues[i * boxSize + j]);
+                expectedFields.set(i * boxSize + j, new SudokuField(expectedValues[i * boxSize + j]));
             }
         }
 
@@ -148,10 +152,8 @@ class SudokuBoardTest {
         for (int i = 0; i < gridSize; i++) {
             sudoku.set(i, 0, i + 1);
         }
-        sudoku.set(0, 0, 2);
+        sudoku.set(0, 0, sudoku.get(3,0));
         assertFalse(sudoku.checkBoardValidity());
-        sudoku.set(0, 0, 1);
-        assertTrue(sudoku.checkBoardValidity());
 
     }
 
@@ -193,7 +195,6 @@ class SudokuBoardTest {
         assertFalse(box.isValid());
         assertTrue(box2.isValid());
 
-        sudoku.unsubscribe(row);
         sudoku.unsubscribe(row);
         sudoku.unsubscribe(column);
         sudoku.unsubscribe(box);

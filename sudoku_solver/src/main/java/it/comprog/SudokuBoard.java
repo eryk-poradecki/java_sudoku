@@ -28,14 +28,16 @@ public class SudokuBoard {
     }
 
     public void set(int col, int row, int value) {
-        board[col][row].setFieldValue(value);
-        notifySubscribers(col, row);
+        if (get(col, row) != value) {
+            board[col][row].setFieldValue(value);
+            notifySubscribers(col, row, value);
+        }
     }
 
     public SudokuRow getRow(int row) {
-        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
         for (int i = 0; i < gridSize; i++) {
-            sudokuFields[i] = this.board[i][row];
+            sudokuFields.set(i, board[i][row].clone());
         }
 
         SudokuRow sudokuRow = new SudokuRow(sudokuFields);
@@ -44,9 +46,9 @@ public class SudokuBoard {
     }
 
     public SudokuColumn getColumn(int col) {
-        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
         for (int i = 0; i < gridSize; i++) {
-            sudokuFields[i] = this.board[col][i];
+            sudokuFields.set(i, board[col][i].clone());
         }
         SudokuColumn sudokuColumn = new SudokuColumn(sudokuFields);
         subscribe(sudokuColumn, col);
@@ -54,12 +56,12 @@ public class SudokuBoard {
     }
 
     public SudokuBox getBox(int col, int row) {
-        SudokuField[] sudokuFields = new SudokuField[gridSize];
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
         int boxCol = col - col % boxSize;
         int boxRow = row - row % boxSize;
         for (int i = 0; i < boxSize; i++) {
             for (int j = 0; j < boxSize; j++) {
-                sudokuFields[i * boxSize + j] = this.board[i + boxCol][j + boxRow];
+                sudokuFields.set(i * boxSize + j, board[boxCol + i][boxRow + j].clone());
             }
         }
         SudokuBox sudokuBox = new SudokuBox(sudokuFields);
@@ -68,26 +70,8 @@ public class SudokuBoard {
     }
 
     // checks if a given value can be inserted in a cell
-    public boolean canInsertValue(int row, int col, int value) {
-        // checks for a duplicate in the same row and column
-        for (int i = 0; i < gridSize; i++) {
-            if (get(row, i) == value || get(i, col) == value) {
-                return false;
-            }
-        }
-
-        // position of the first cell in the box
-        int boxRow = row - row % 3;
-        int boxCol = col - col % 3;
-        // checks for duplicates in the box
-        for (int i = 0; i < boxSize; i++) {
-            for (int j = 0; j < boxSize; j++) {
-                if (get(boxRow + i, boxCol + j) == value) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    public boolean canInsertValue(int col, int row, int value) {
+        return !getRow(col).contains(value) && !getColumn(row).contains(value) && !getBox(row, col).contains(value);
     }
 
     public boolean checkBoardValidity() {
@@ -122,14 +106,14 @@ public class SudokuBoard {
         for (Map.Entry<SudokuSubscriber, Integer> sub : sudokuSubscribers) {
             if (sub.getKey() == subGrid) {
                 sudokuSubscribers.remove(sub);
-                return;
+                break;
             }
         }
     }
 
-    private void notifySubscribers(int x, int y) {
+    private void notifySubscribers(int col, int row, int value) {
         for (Map.Entry<SudokuSubscriber, Integer> sub : sudokuSubscribers) {
-            sub.getKey().update(x, y, sub.getValue());
+            sub.getKey().update(col, row, sub.getValue(), value);
         }
     }
 
