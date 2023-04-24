@@ -216,4 +216,69 @@ class SudokuBoardTest {
         assertFalse(column.isValid());
         assertFalse(box.isValid());
     }
+
+    @Test
+    public void testHashCode() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard correctBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard incorrectBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+
+        for (int i = 0; i < gridSize; i++) {
+            for (int o = 0; o < gridSize; o++) {
+                sudokuBoard.set(i, o, o + 1);
+                correctBoard.set(i, o, o + 1);
+                incorrectBoard.set(i, o, gridSize - o);
+            }
+        }
+
+        assertEquals(sudokuBoard.hashCode(), correctBoard.hashCode());
+        assertNotEquals(sudokuBoard.hashCode(), incorrectBoard.hashCode());
+    }
+
+    @Test
+    public void testToString() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+
+        String expectedString = "SudokuBoard[sudokuBoard=\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + "{0, 0, 0, 0, 0, 0, 0, 0, 0}\n"
+                + ",sudokuSolver=BacktrackingSudokuSolver[]]";
+
+        assertEquals(expectedString, sudokuBoard.toString());
+
+        sudokuBoard.set(0, 0, 1);
+
+        assertNotEquals(expectedString, sudokuBoard.toString());
+    }
+
+    @Test
+    public void testEquals() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard correctBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard incorrectBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard nullBoard = null;
+        SudokuField differentClassTest = new SudokuField(5);
+
+        for (int i = 0; i < gridSize; i++) {
+            for (int o = 0; o < gridSize; o++) {
+                sudokuBoard.set(i, o, o + 1);
+                correctBoard.set(i, o, o + 1);
+                incorrectBoard.set(i, o, gridSize - o);
+            }
+        }
+
+        assertEquals(sudokuBoard, sudokuBoard);
+        assertEquals(sudokuBoard, correctBoard);
+        assertNotEquals(sudokuBoard, incorrectBoard);
+        assertNotEquals(sudokuBoard, nullBoard);
+        assertNotEquals(sudokuBoard, differentClassTest);
+    }
+
 }

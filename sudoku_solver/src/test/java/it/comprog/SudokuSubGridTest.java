@@ -66,4 +66,69 @@ class SudokuSubGridTest {
         assertFalse(sudokuBox.verify());
     }
 
+    @Test
+    void testHashCode() {
+        int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] values2 = {3, 2, 1, 4, 5, 6, 9, 8, 7};
+
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
+        List<SudokuField> sudokuFields2 = Arrays.asList(new SudokuField[gridSize]);
+        for (int i = 0; i < gridSize; i++) {
+            sudokuFields.set(i, new SudokuField(values[i]));
+            sudokuFields2.set(i, new SudokuField(values2[i]));
+        }
+
+        SudokuRow row = new SudokuRow(sudokuFields);
+        SudokuRow correctRow = new SudokuRow(sudokuFields);
+        SudokuRow incorrectRow = new SudokuRow(sudokuFields2);
+
+        assertEquals(row.hashCode(), correctRow.hashCode());
+        assertNotEquals(row.hashCode(), incorrectRow.hashCode());
+    }
+
+    @Test
+    void testToString() {
+        int[] expected = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
+        for (int i = 0; i < gridSize; i++) {
+            sudokuFields.set(i, new SudokuField(expected[i]));
+        }
+
+        SudokuRow row = new SudokuRow(sudokuFields);
+
+        sudokuFields.set(1, new SudokuField(3));
+        SudokuRow differentRow = new SudokuRow(sudokuFields);
+
+        String expectedString = "SudokuRow[sudokuFields=[1, 2, 3, 4, 5, 6, 7, 8, 9],valid=true]";
+
+        assertEquals(expectedString, row.toString());
+        assertNotEquals(row.toString(), differentRow.toString());
+    }
+
+    @Test
+    void testEquals() {
+        int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] values2 = {3, 2, 1, 4, 5, 6, 9, 8, 7};
+
+        List<SudokuField> expectedFields = Arrays.asList(new SudokuField[gridSize]);
+        List<SudokuField> unexpectedFields = Arrays.asList(new SudokuField[gridSize]);
+        for (int i = 0; i < gridSize; i++) {
+            expectedFields.set(i, new SudokuField(values[i]));
+            unexpectedFields.set(i, new SudokuField(values2[i]));
+        }
+
+        SudokuRow row = new SudokuRow(expectedFields);
+        SudokuRow correctRow = new SudokuRow(expectedFields);
+        SudokuRow incorrectRow = new SudokuRow(unexpectedFields);
+        SudokuRow nullRow = null;
+        SudokuColumn differentClassTest = new SudokuColumn(expectedFields);
+
+        assertEquals(row, row);
+        assertEquals(row, correctRow);
+        assertNotEquals(row, incorrectRow);
+        assertNotEquals(row, nullRow);
+        assertNotEquals(row, differentClassTest);
+    }
+
 }

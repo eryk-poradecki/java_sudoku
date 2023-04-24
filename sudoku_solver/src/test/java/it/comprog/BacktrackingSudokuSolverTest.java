@@ -25,4 +25,33 @@ class BacktrackingSudokuSolverTest {
         assertNotSame(sudokuBoard1.getBox(3,4), sudokuBoard2.getBox(3,4));
     }
 
+    @Test
+    void testHashCode() {
+        BacktrackingSudokuSolver sudokuSolver = new BacktrackingSudokuSolver();
+        BacktrackingSudokuSolver sudokuSolver2 = new BacktrackingSudokuSolver();
+
+        assertEquals(sudokuSolver.hashCode(), sudokuSolver2.hashCode());
+    }
+
+    @Test
+    void testToString() {
+        BacktrackingSudokuSolver sudokuSolver = new BacktrackingSudokuSolver();
+
+        assertEquals("BacktrackingSudokuSolver[]", sudokuSolver.toString());
+    }
+
+    @Test
+    void testEquals() {
+        BacktrackingSudokuSolver sudokuSolver = new BacktrackingSudokuSolver();
+        BacktrackingSudokuSolver correctSolver = new BacktrackingSudokuSolver();
+        BacktrackingSudokuSolver nullSolver = null;
+        Object differentClassTest = new Object();
+
+        assertEquals(sudokuSolver, sudokuSolver);
+        assertEquals(sudokuSolver, correctSolver);
+        assertNotEquals(sudokuSolver, nullSolver);
+        assertNotEquals(sudokuSolver, differentClassTest);
+
+    }
+
 }

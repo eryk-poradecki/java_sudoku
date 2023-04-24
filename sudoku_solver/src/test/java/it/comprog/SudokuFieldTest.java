@@ -45,4 +45,26 @@ class SudokuFieldTest {
         SudokuField clonedField = sudokuField.clone();
         assertEquals(sudokuField.getFieldValue(), clonedField.getFieldValue());
     }
+
+    @Test
+    void testHashCode() {
+        SudokuField sudokuField = new SudokuField(6);
+        SudokuField correctField = new SudokuField(6);
+        SudokuField incorrectField = new SudokuField(3);
+
+        assertEquals(sudokuField.hashCode(), correctField.hashCode());
+        assertNotEquals(sudokuField.hashCode(), incorrectField.hashCode());
+    }
+
+    @Test
+    void testToString() {
+        SudokuField sudokuField = new SudokuField(7);
+        assertEquals("7", sudokuField.toString());
+    }
+
+    @Test
+    void testEqualsSameObject() {
+        SudokuField sudokuField = new SudokuField(7);
+        assertEquals(sudokuField, sudokuField);
+    }
 }
