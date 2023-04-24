@@ -76,10 +76,7 @@ public class SudokuBoard {
 
     // checks if a given value can be inserted in a cell
     public boolean canInsertValue(int col, int row, int value) {
-        if (getRow(row).contains(value) || getColumn(col).contains(value) || getBox(col, row).contains(value)) {
-            return false;
-        }
-        return true;
+        return !getRow(row).contains(value) && !getColumn(col).contains(value) && !getBox(col, row).contains(value);
     }
 
     public boolean checkBoardValidity() {
