@@ -1,5 +1,10 @@
 package it.comprog;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class SudokuField {
 
     private int value;
@@ -30,6 +35,10 @@ public class SudokuField {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
         if (o == null) {
             return false;
         }
@@ -39,6 +48,24 @@ public class SudokuField {
         }
 
         SudokuField valueCheck = (SudokuField) o;
-        return getFieldValue() == valueCheck.value;
+        return new EqualsBuilder()
+                .append(this.value, valueCheck.value)
+                .isEquals();
     }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(11, 31)
+                .append(value)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append(value)
+                .toString();
+    }
+
+
 }

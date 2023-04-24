@@ -1,5 +1,10 @@
 package it.comprog;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -42,5 +47,40 @@ public abstract class SudokuSubGrid {
             }
         valid = true;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("sudokuFields", sudokuFields)
+                .append("valid", valid)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(sudokuFields)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null) {
+            return false;
+        }
+
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        SudokuSubGrid subGrid = (SudokuSubGrid) o;
+        return new EqualsBuilder()
+                .append(this.sudokuFields, subGrid.sudokuFields)
+                .isEquals();
     }
 }

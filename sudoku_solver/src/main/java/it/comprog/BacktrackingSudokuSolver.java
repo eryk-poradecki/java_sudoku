@@ -1,5 +1,8 @@
 package it.comprog;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -53,5 +56,32 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     public void solve(SudokuBoard sudokuBoard) {
         setInitialRow(sudokuBoard);
         backtrack(0,0, sudokuBoard);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null) {
+            return false;
+        }
+
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return 3;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
     }
 }
