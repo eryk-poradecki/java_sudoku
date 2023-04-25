@@ -1,6 +1,11 @@
 package it.comprog;
 
-public class SudokuField implements Cloneable {
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+public class SudokuField {
 
     private int value;
 
@@ -22,7 +27,6 @@ public class SudokuField implements Cloneable {
         }
     }
 
-    @Override
     public SudokuField clone() {
         SudokuField clonedField = new SudokuField();
         clonedField.setFieldValue(getFieldValue());
@@ -31,6 +35,10 @@ public class SudokuField implements Cloneable {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
         if (o == null) {
             return false;
         }
@@ -40,6 +48,24 @@ public class SudokuField implements Cloneable {
         }
 
         SudokuField valueCheck = (SudokuField) o;
-        return getFieldValue() == valueCheck.value;
+        return new EqualsBuilder()
+                .append(this.value, valueCheck.value)
+                .isEquals();
     }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(11, 31)
+                .append(value)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+                .append(value)
+                .toString();
+    }
+
+
 }

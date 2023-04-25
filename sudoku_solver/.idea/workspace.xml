@@ -7,8 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="fix: moved license to the root dir">
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="fix: modified style of toString method to return just the value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuFieldTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuSubGridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/comprog/SudokuSubGridTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +80,7 @@
       <recent name="it.comprog" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BacktrackingSudokuSolverTest">
+  <component name="RunManager" selected="JUnit.SudokuFieldTest.testToString">
     <configuration name="BacktrackingSudokuSolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SudokuProject" />
       <extension name="coverage">
@@ -123,23 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SudokuBoardTest.testCheckBoardValidity_invalidColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SudokuProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuBoardTest" />
-      <option name="METHOD_NAME" value="testCheckBoardValidity_invalidColumn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SudokuFieldTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SudokuFieldTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SudokuProject" />
       <extension name="coverage">
         <pattern>
@@ -149,18 +137,35 @@
       </extension>
       <option name="PACKAGE_NAME" value="it.comprog" />
       <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuFieldTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuFieldTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SudokuProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuFieldTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SudokuFieldTest.testToString" />
+        <item itemvalue="JUnit.SudokuFieldTest.testHashCode" />
         <item itemvalue="JUnit.BacktrackingSudokuSolverTest" />
         <item itemvalue="JUnit.BacktrackingSudokuSolverTest.testCheckBoardValidity_afterSolving" />
         <item itemvalue="JUnit.SudokuBoardTest" />
-        <item itemvalue="JUnit.SudokuBoardTest.testCheckBoardValidity_invalidColumn" />
-        <item itemvalue="JUnit.SudokuFieldTest" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +193,9 @@
       <workItem from="1680956783916" duration="933000" />
       <workItem from="1681200917675" duration="11563000" />
       <workItem from="1681212771726" duration="314000" />
-      <workItem from="1681213772924" duration="28000" />
+      <workItem from="1681213772924" duration="861000" />
+      <workItem from="1682241897099" duration="226000" />
+      <workItem from="1682352536398" duration="4444000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -246,7 +253,35 @@
       <option name="project" value="LOCAL" />
       <updated>1681212980293</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: moved license to the root dir">
+      <created>1681213817736</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681213817736</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: overridden equals, toString and hashCode for all model classes">
+      <created>1682355365615</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682355365615</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: overridden equals, toString and hashCode for all model classes">
+      <created>1682355402129</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682355402129</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: modified style of toString method to return just the value">
+      <created>1682355955578</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682355955578</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +306,8 @@
     <MESSAGE value="fix: corrected tests to get 100% coverage, corrected wrong row/column arguments in backtracking algorithm" />
     <MESSAGE value="feat: added Apache 2.0 license" />
     <MESSAGE value="fix: moved license to the root dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: moved license to the root dir" />
+    <MESSAGE value="feat: overridden equals, toString and hashCode for all model classes" />
+    <MESSAGE value="fix: modified style of toString method to return just the value" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: modified style of toString method to return just the value" />
   </component>
 </project>

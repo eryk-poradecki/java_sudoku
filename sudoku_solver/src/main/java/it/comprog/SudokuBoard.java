@@ -1,5 +1,10 @@
 package it.comprog;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.*;
 
 import static it.comprog.SudokuUtils.boxSize;
@@ -71,10 +76,7 @@ public class SudokuBoard {
 
     // checks if a given value can be inserted in a cell
     public boolean canInsertValue(int col, int row, int value) {
-        if (getRow(row).contains(value) || getColumn(col).contains(value) || getBox(col, row).contains(value)) {
-            return false;
-        }
-        return true;
+        return !getRow(row).contains(value) && !getColumn(col).contains(value) && !getBox(col, row).contains(value);
     }
 
     public boolean checkBoardValidity() {
@@ -122,6 +124,53 @@ public class SudokuBoard {
 
     public void solveGame() {
         sudokuSolver.solve(this);
+    }
+
+    @Override
+    public String toString() {
+        String boardToString = "\n";
+        for (int i = 0; i < gridSize; i++) {
+            boardToString += "{";
+            for (int j = 0; j < gridSize; j++) {
+                boardToString += get(i,j);
+                if (j != 8) {
+                    boardToString += ", ";
+                }
+            }
+            boardToString += "}\n";
+        }
+
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("sudokuBoard", boardToString)
+                .append("sudokuSolver", sudokuSolver)
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null) {
+            return false;
+        }
+
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        SudokuBoard checkBoard = (SudokuBoard) o;
+        return new EqualsBuilder()
+                .append(this.board, checkBoard.board)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(21, 41)
+                .append(board)
+                .toHashCode();
     }
 
 

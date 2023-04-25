@@ -33,6 +33,14 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>1.0.9</version>
+                <configuration>
+                    <mainClass>your.mainClass</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.2.1</version>
@@ -77,7 +85,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>default-check</id>
+                        <id>default-jacoco-check</id>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -170,6 +178,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.9.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+            <!-- Uses Apache 2.0 License: http://www.apache.org/licenses/LICENSE-2.0 -->
         </dependency>
     </dependencies>
 
