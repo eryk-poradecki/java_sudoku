@@ -5,13 +5,14 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.io.Serializable;
 import java.util.*;
 
 import static it.comprog.SudokuUtils.boxSize;
 import static it.comprog.SudokuUtils.gridSize;
 
 
-public class SudokuBoard {
+public class SudokuBoard implements Serializable {
 
     private final SudokuField[][] board = new SudokuField[gridSize][gridSize];
 
