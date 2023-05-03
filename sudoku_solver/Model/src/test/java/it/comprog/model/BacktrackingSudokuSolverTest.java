@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 

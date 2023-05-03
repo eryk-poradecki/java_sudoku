@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -11,11 +11,11 @@ public class SudokuField implements Serializable {
 
     private int value;
 
-    SudokuField() {
+    public SudokuField() {
 
     }
 
-    SudokuField(int value) {
+    public SudokuField(int value) {
         setFieldValue(value);
     }
 

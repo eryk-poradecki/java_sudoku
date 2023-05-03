@@ -1,12 +1,13 @@
-package it.comprog;
+package it.comprog.model;
 
+import it.comprog.model.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 class SudokuBoardTest {
 

@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -8,8 +8,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.*;
 
-import static it.comprog.SudokuUtils.boxSize;
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.boxSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 
 public class SudokuBoard implements Serializable {

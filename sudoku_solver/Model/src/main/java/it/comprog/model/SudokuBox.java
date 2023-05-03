@@ -1,8 +1,8 @@
-package it.comprog;
+package it.comprog.model;
 
 import java.util.List;
 
-import static it.comprog.SudokuUtils.boxSize;
+import static it.comprog.model.SudokuUtils.boxSize;
 
 public class SudokuBox extends SudokuSubGrid implements SudokuSubscriber {
 

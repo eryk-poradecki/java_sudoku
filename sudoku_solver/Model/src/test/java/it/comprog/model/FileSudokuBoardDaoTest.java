@@ -1,8 +1,9 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import java.io.ObjectInputStream;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
@@ -14,6 +15,7 @@ class FileSudokuBoardDaoTest {
     void testReadWrite(@TempDir Path tempDir) throws Exception {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         SudokuBoard sudokuBoard2;
+        SudokuField testField = new SudokuField(8);
 
         FileSudokuBoardDaoFactory sudokuFactory = new FileSudokuBoardDaoFactory();
 
