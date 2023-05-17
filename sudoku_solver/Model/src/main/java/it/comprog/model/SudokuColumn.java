@@ -15,4 +15,9 @@ public class SudokuColumn extends SudokuSubGrid implements SudokuSubscriber {
             verify();
         }
     }
+
+    @Override
+    public SudokuColumn clone() {
+        return new SudokuColumn(getSudokuFields());
+    }
 }

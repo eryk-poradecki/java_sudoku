@@ -84,4 +84,9 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
     }
+
+    @Override
+    public BacktrackingSudokuSolver clone() {
+        return new BacktrackingSudokuSolver();
+    }
 }

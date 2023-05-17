@@ -21,4 +21,9 @@ public class SudokuBox extends SudokuSubGrid implements SudokuSubscriber {
             verify();
         }
     }
+
+    @Override
+    public SudokuBox clone() {
+        return new SudokuBox(getSudokuFields());
+    }
 }
