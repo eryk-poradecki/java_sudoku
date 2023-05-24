@@ -7,32 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: added unit tests for the Dao classes">
-      <change afterPath="$PROJECT_DIR$/View/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: added clone method testing">
+      <change afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/BoardClonerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Difficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/GameWindowControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/MenuWindowControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/BacktrackingSudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/BacktrackingSudokuSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/FileSudokuBoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/FileSudokuBoardDaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuBoardDaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoardDaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuSubGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/SudokuUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/BacktrackingSudokuSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/BacktrackingSudokuSolverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/FileSudokuBoardDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/FileSudokuBoardDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/SudokuBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/SudokuFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/SudokuFieldTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/SudokuSubGridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/SudokuSubGridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/FileSudokuBoardDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/FileSudokuBoardDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/View/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,9 +31,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -89,7 +78,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JavaFX/openjfx-20.0.1_windows-x64_bin-sdk/javafx-sdk-20.0.1/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JavaFX/openjfx-20.0.1_windows-x64_bin-sdk/javafx-sdk-20.0.1/lib/javafx.web.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,12 +87,13 @@
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.39655173&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\java\component_programming\ww_thu_1145_08\sudoku_solver\View\src\main\resources\it\comprog" />
       <recent name="E:\java\component_programming\ww_thu_1145_08\sudoku_solver\View" />
       <recent name="E:\java\component_programming\ww_thu_1145_08\sudoku_solver" />
     </key>
@@ -111,6 +101,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="it.comprog.model" />
       <recent name="it.comprog" />
     </key>
   </component>
@@ -119,6 +110,37 @@
       <option name="MAIN_CLASS_NAME" value="it.comprog.view.Main" />
       <module name="ViewProject" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\JavaFX\openjfx-20.0.1_windows-x64_bin-sdk\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileSudokuBoardDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ModelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog.model" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.model.FileSudokuBoardDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileSudokuBoardDaoTest.testReadThrowException (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ModelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.comprog.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.comprog.model" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.model.FileSudokuBoardDaoTest" />
+      <option name="METHOD_NAME" value="testReadThrowException(java.nio.file.Path)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,7 +161,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileSudokuBoardDaoTest.testReadWrite (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FileSudokuBoardDaoTest.testReadWrite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ModelProject" />
       <extension name="coverage">
         <pattern>
@@ -155,49 +177,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileSudokuBoardDaoTest.testReadWrite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SudokuSubGridTest.testClone" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ModelProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
+          <option name="PATTERN" value="it.comprog.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.FileSudokuBoardDaoTest" />
-      <option name="METHOD_NAME" value="testReadWrite(java.nio.file.Path)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SudokuFieldTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SudokuProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuFieldTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SudokuFieldTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SudokuProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.comprog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.comprog" />
-      <option name="MAIN_CLASS_NAME" value="it.comprog.SudokuFieldTest" />
-      <option name="METHOD_NAME" value="testToString" />
+      <option name="PACKAGE_NAME" value="it.comprog.model" />
+      <option name="MAIN_CLASS_NAME" value="it.comprog.model.SudokuSubGridTest" />
+      <option name="METHOD_NAME" value="testClone" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -205,19 +195,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadWrite (1)" />
-      <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadThrowException" />
       <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadWrite" />
-      <item itemvalue="JUnit.SudokuFieldTest.testHashCode" />
-      <item itemvalue="JUnit.SudokuFieldTest.testToString" />
+      <item itemvalue="JUnit.FileSudokuBoardDaoTest" />
+      <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadThrowException (1)" />
+      <item itemvalue="JUnit.SudokuSubGridTest.testClone" />
+      <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadThrowException" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadWrite (1)" />
+        <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadThrowException (1)" />
+        <item itemvalue="JUnit.FileSudokuBoardDaoTest" />
+        <item itemvalue="JUnit.SudokuSubGridTest.testClone" />
         <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadThrowException" />
-        <item itemvalue="JUnit.FileSudokuBoardDaoTest.testReadWrite" />
-        <item itemvalue="JUnit.SudokuFieldTest.testToString" />
-        <item itemvalue="JUnit.SudokuFieldTest.testHashCode" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +246,16 @@
       <workItem from="1683020114339" duration="9754000" />
       <workItem from="1683036167414" duration="61000" />
       <workItem from="1683036470410" duration="405000" />
-      <workItem from="1683103799454" duration="924000" />
+      <workItem from="1683103799454" duration="1231000" />
+      <workItem from="1683105160417" duration="675000" />
+      <workItem from="1683111266560" duration="223000" />
+      <workItem from="1683715418102" duration="5723000" />
+      <workItem from="1684052748587" duration="321000" />
+      <workItem from="1684053163394" duration="5414000" />
+      <workItem from="1684058588423" duration="3311000" />
+      <workItem from="1684063593411" duration="114000" />
+      <workItem from="1684323744002" duration="2691000" />
+      <workItem from="1684338211481" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -371,7 +369,49 @@
       <option name="project" value="LOCAL" />
       <updated>1683028364723</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="refactor: moved all sudoku classes to Model project">
+      <created>1683104850892</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683104850892</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor: moved all sudoku classes to Model project">
+      <created>1683104856812</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683104856812</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: added View module with sample code to test javafx">
+      <created>1683104978587</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683104978587</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: Added new project's target dir to .gitignore">
+      <created>1684338244966</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684338244966</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: implemented clone overrides">
+      <created>1684338318498</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684338318498</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat: added clone method testing">
+      <created>1684338357134</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684338357134</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,6 +442,25 @@
     <MESSAGE value="feat: added Dao interface, implementation and factory" />
     <MESSAGE value="refactor: all classes moved to the Model project" />
     <MESSAGE value="feat: added unit tests for the Dao classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added unit tests for the Dao classes" />
+    <MESSAGE value="refactor: moved all sudoku classes to Model project" />
+    <MESSAGE value="feat: added View module with sample code to test javafx" />
+    <MESSAGE value="fix: Added new project's target dir to .gitignore" />
+    <MESSAGE value="feat: implemented clone overrides" />
+    <MESSAGE value="feat: added clone method testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added clone method testing" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -43,7 +43,7 @@
                 <artifactId>gluonfx-maven-plugin</artifactId>
                 <version>1.0.18</version>
                 <configuration>
-                    <mainClass>your.mainClass</mainClass>
+                    <mainClass>it.comprog.view.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
