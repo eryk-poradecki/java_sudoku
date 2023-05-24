@@ -6,12 +6,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static it.comprog.model.SudokuUtils.gridSize;
 
-public abstract class SudokuSubGrid {
+public abstract class SudokuSubGrid implements Cloneable {
 
     private List<SudokuField> sudokuFields;
 
@@ -83,4 +84,15 @@ public abstract class SudokuSubGrid {
                 .append(this.sudokuFields, subGrid.sudokuFields)
                 .isEquals();
     }
+
+    protected List<SudokuField> getSudokuFields() {
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
+        for (int i = 0; i < gridSize; i++) {
+            sudokuFields.set(i, get(i));
+        }
+        return sudokuFields;
+    }
+
+    @Override
+    public abstract SudokuSubGrid clone();
 }
