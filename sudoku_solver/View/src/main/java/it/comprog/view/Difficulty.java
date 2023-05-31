@@ -5,23 +5,39 @@ import it.comprog.model.SudokuBoard;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static it.comprog.model.SudokuUtils.gridSize;
 
 public class Difficulty {
 
     public enum Difficulties {
-        EASY("easy"),
-        MEDIUM("medium"),
-        HARD("hard");
+        EASY("Easy", 6 * 7),
+        MEDIUM("Medium", 6 * 8),
+        HARD("Hard", 6 * 9);
 
-        Difficulties(String s) {
+        String level;
+        int fieldsToEmpty;
+        private ResourceBundle resourceBundle = Main.getResourceBundle();
+
+        Difficulties(String s, int i) {
+            level = s;
+            fieldsToEmpty = i;
+        }
+
+        String getLevel() {
+            return level;
+        }
+
+        String getLocaleLevel() {
+            return resourceBundle.getString(getLevel());
+        }
+
+        int getFieldsToEmpty() {
+            return fieldsToEmpty;
         }
     }
 
-    private static final int DEF_LVL = 6;
-
-    private static final int[] MULT_LVL = {7, 8, 9};
 
     private List<Integer> uniqueRandomNumbers(int n) {
         List<Integer> setNumbers = new ArrayList<>();
@@ -40,15 +56,15 @@ public class Difficulty {
         List<Integer> numbers;
         switch (diff) {
             case "MEDIUM": {
-                numbers = uniqueRandomNumbers(DEF_LVL * MULT_LVL[1]);
+                numbers = uniqueRandomNumbers(Difficulties.MEDIUM.getFieldsToEmpty());
                 break;
             }
             case "HARD": {
-                numbers = uniqueRandomNumbers(DEF_LVL * MULT_LVL[2]);
+                numbers = uniqueRandomNumbers(Difficulties.HARD.getFieldsToEmpty());
                 break;
             }
             default: {
-                numbers = uniqueRandomNumbers(DEF_LVL * MULT_LVL[0]);
+                numbers = uniqueRandomNumbers(Difficulties.EASY.getFieldsToEmpty());
                 break;
             }
         }
