@@ -7,21 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: added clone method testing">
-      <change afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/BoardClonerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Difficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/GameWindowControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/MenuWindowControl.java" afterDir="false" />
+    <list default="true" id="f2432048-fe48-432c-9f2c-d0fed557b76c" name="Changes" comment="feat: added initial GUI with 3 difficulty levels">
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Author_en.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Author_pl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/SceneManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/Language_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/Language_pl.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/FileSudokuBoardDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/it/comprog/model/SudokuSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/FileSudokuBoardDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/FileSudokuBoardDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/View/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/test/java/it/comprog/model/SudokuBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Difficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Difficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/GameWindowControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/GameWindowControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/MenuWindowControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/it/comprog/view/MenuWindowControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/GameWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/MenuWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/resources/it/comprog/view/MenuWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +33,8 @@
       <list>
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,6 +99,10 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\java\component_programming\ww_thu_1145_08\sudoku_solver\View\src\main\resources\it\comprog\view" />
+      <recent name="E:\java\component_programming\ww_thu_1145_08\sudoku_solver\View\src\main\resources\it\comprog\view\Resource Bundle 'Language'" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="it.comprog.model" />
@@ -256,6 +260,12 @@
       <workItem from="1684063593411" duration="114000" />
       <workItem from="1684323744002" duration="2691000" />
       <workItem from="1684338211481" duration="1051000" />
+      <workItem from="1684917088236" duration="770000" />
+      <workItem from="1684917922773" duration="472000" />
+      <workItem from="1685192951950" duration="1429000" />
+      <workItem from="1685266087566" duration="3252000" />
+      <workItem from="1685524406173" duration="8957000" />
+      <workItem from="1685540426164" duration="1486000" />
     </task>
     <task id="LOCAL-00001" summary="Exercise 2">
       <created>1678892610177</created>
@@ -411,7 +421,42 @@
       <option name="project" value="LOCAL" />
       <updated>1684338357134</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat: added Cloneable and Serializable implementations">
+      <created>1684917439691</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917439691</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: pom.xml plugins version updates">
+      <created>1684917465743</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917465743</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: added a test class for BoardCloner">
+      <created>1684917486798</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917486798</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: added exception throwing information">
+      <created>1684917523213</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917523213</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: added initial GUI with 3 difficulty levels">
+      <created>1684917579428</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684917579428</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +492,12 @@
     <MESSAGE value="fix: Added new project's target dir to .gitignore" />
     <MESSAGE value="feat: implemented clone overrides" />
     <MESSAGE value="feat: added clone method testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added clone method testing" />
+    <MESSAGE value="feat: added Cloneable and Serializable implementations" />
+    <MESSAGE value="feat: pom.xml plugins version updates" />
+    <MESSAGE value="feat: added a test class for BoardCloner" />
+    <MESSAGE value="feat: added exception throwing information" />
+    <MESSAGE value="feat: added initial GUI with 3 difficulty levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added initial GUI with 3 difficulty levels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
