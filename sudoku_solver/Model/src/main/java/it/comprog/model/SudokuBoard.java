@@ -40,6 +40,10 @@ public class SudokuBoard implements Serializable, Cloneable {
         }
     }
 
+    public SudokuField getField(int x, int y) {
+        return board[x][y];
+    }
+
     public SudokuRow getRow(int row) {
         List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
         for (int i = 0; i < gridSize; i++) {
