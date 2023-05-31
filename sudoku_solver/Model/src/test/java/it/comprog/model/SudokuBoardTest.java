@@ -282,4 +282,12 @@ class SudokuBoardTest {
         assertNotEquals(sudokuBoard, differentClassTest);
     }
 
+    @Test
+    public void testGetField() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        sudokuBoard.set(0,0, 5);
+        SudokuField sudokuField = new SudokuField(5);
+        assertEquals(sudokuField.getFieldValue(), sudokuBoard.getField(0,0).getFieldValue());
+    }
+
 }
