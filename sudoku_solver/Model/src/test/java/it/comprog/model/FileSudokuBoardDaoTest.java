@@ -1,8 +1,10 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
@@ -11,9 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileSudokuBoardDaoTest {
 
     @Test
-    void testReadWrite(@TempDir Path tempDir) throws Exception {
+    void testReadWrite(@TempDir Path tempDir) {
         SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         SudokuBoard sudokuBoard2;
+        SudokuField testField = new SudokuField(8);
 
         FileSudokuBoardDaoFactory sudokuFactory = new FileSudokuBoardDaoFactory();
 
@@ -39,7 +42,7 @@ class FileSudokuBoardDaoTest {
         String fileName = Paths.get(tempDir.toString(),"testReadThrowException.brd").toString();
 
         try (FileSudokuBoardDao fileDao = (FileSudokuBoardDao)sudokuFactory.getFileDao(fileName)) {
-            assertThrows(RuntimeException.class, fileDao::read);
+            assertThrows(FileNotFoundException.class, fileDao::read);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

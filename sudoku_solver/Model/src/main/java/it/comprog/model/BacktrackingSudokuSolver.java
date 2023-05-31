@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 public class BacktrackingSudokuSolver implements SudokuSolver {
 
@@ -83,5 +83,10 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
+    }
+
+    @Override
+    public BacktrackingSudokuSolver clone() {
+        return new BacktrackingSudokuSolver();
     }
 }

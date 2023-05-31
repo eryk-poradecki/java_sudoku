@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 
 class SudokuSubGridTest {
@@ -129,6 +129,31 @@ class SudokuSubGridTest {
         assertNotEquals(row, incorrectRow);
         assertNotEquals(row, nullRow);
         assertNotEquals(row, differentClassTest);
+    }
+
+    @Test
+    public void testClone() {
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[gridSize]);
+        for(int i = 0; i < gridSize; i++) {
+            sudokuFields.set(i, new SudokuField(i));
+        }
+
+        SudokuRow sudokuRow = new SudokuRow(sudokuFields);
+        SudokuColumn sudokuColumn = new SudokuColumn(sudokuFields);
+        SudokuBox sudokuBox = new SudokuBox(sudokuFields);
+
+        SudokuRow cloneRow = sudokuRow.clone();
+        SudokuColumn cloneColumn = sudokuColumn.clone();
+        SudokuBox cloneBox = sudokuBox.clone();
+
+        assertNotSame(sudokuRow, cloneRow);
+        assertEquals(sudokuRow, cloneRow);
+
+        sudokuRow.set(3,5);
+        cloneRow.set(3, 8);
+
+        assertNotEquals(cloneRow.get(3).getFieldValue(), sudokuRow.get(3).getFieldValue());
+        assertNotEquals(cloneRow, sudokuRow);
     }
 
 }

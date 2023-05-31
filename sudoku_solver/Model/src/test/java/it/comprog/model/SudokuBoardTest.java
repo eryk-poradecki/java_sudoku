@@ -1,12 +1,13 @@
-package it.comprog;
+package it.comprog.model;
 
+import it.comprog.model.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 class SudokuBoardTest {
 
@@ -279,6 +280,14 @@ class SudokuBoardTest {
         assertNotEquals(sudokuBoard, incorrectBoard);
         assertNotEquals(sudokuBoard, nullBoard);
         assertNotEquals(sudokuBoard, differentClassTest);
+    }
+
+    @Test
+    public void testGetField() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        sudokuBoard.set(0,0, 5);
+        SudokuField sudokuField = new SudokuField(5);
+        assertEquals(sudokuField.getFieldValue(), sudokuBoard.getField(0,0).getFieldValue());
     }
 
 }

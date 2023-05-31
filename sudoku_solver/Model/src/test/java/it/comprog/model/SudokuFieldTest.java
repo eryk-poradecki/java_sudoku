@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SudokuFieldTest {
 
     @Test
-    void testSetGetValue_validValue() {
+    public void testSetGetValue_validValue() {
         SudokuField sudokuField = new SudokuField();
 
         assertEquals(0, sudokuField.getFieldValue());
@@ -16,7 +16,7 @@ class SudokuFieldTest {
     }
 
     @Test
-    void testSetGetValue_invalidValue(){
+    public void testSetGetValue_invalidValue(){
         SudokuField sudokuField = new SudokuField();
 
         sudokuField.setFieldValue(-3);
@@ -26,28 +26,28 @@ class SudokuFieldTest {
     }
 
     @Test
-    void testEquals_invalidClass(){
+    public void testEquals_invalidClass(){
         SudokuField sudokuField = new SudokuField();
 
         assertFalse(sudokuField.equals(4));
     }
 
     @Test
-    void testEquals_nullValue(){
+    public void testEquals_nullValue(){
         SudokuField sudokuField = new SudokuField();
 
         assertFalse(sudokuField.equals(null));
     }
 
     @Test
-    void testClone() {
+    public void testClone() {
         SudokuField sudokuField = new SudokuField();
         SudokuField clonedField = sudokuField.clone();
         assertEquals(sudokuField.getFieldValue(), clonedField.getFieldValue());
     }
 
     @Test
-    void testHashCode() {
+    public void testHashCode() {
         SudokuField sudokuField = new SudokuField(6);
         SudokuField correctField = new SudokuField(6);
         SudokuField incorrectField = new SudokuField(3);
@@ -57,14 +57,27 @@ class SudokuFieldTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         SudokuField sudokuField = new SudokuField(7);
         assertEquals("7", sudokuField.toString());
     }
 
     @Test
-    void testEqualsSameObject() {
+    public void testEqualsSameObject() {
         SudokuField sudokuField = new SudokuField(7);
         assertEquals(sudokuField, sudokuField);
+    }
+
+    @Test
+    public void testCompare() {
+        SudokuField sudokuField = new SudokuField(5);
+        SudokuField lessField = new SudokuField(1);
+        SudokuField moreField = new SudokuField(9);
+        SudokuField equalField = new SudokuField(5);
+
+        assertTrue(sudokuField.compareTo(lessField) > 0);
+        assertTrue(sudokuField.compareTo(moreField) < 0);
+        assertEquals(sudokuField.compareTo(equalField), 0);
+        assertThrows(NullPointerException.class, () -> sudokuField.compareTo(null));
     }
 }

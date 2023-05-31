@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -8,19 +8,19 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.*;
 
-import static it.comprog.SudokuUtils.boxSize;
-import static it.comprog.SudokuUtils.gridSize;
+import static it.comprog.model.SudokuUtils.boxSize;
+import static it.comprog.model.SudokuUtils.gridSize;
 
 
-public class SudokuBoard implements Serializable {
+public class SudokuBoard implements Serializable, Cloneable {
 
     private final SudokuField[][] board = new SudokuField[gridSize][gridSize];
 
-    private final SudokuSolver sudokuSolver;
+    private SudokuSolver sudokuSolver;
 
     private List<Map.Entry<SudokuSubscriber, Integer>> sudokuSubscribers = new ArrayList<>();
 
-    SudokuBoard(SudokuSolver sudokuSolver) {
+    public SudokuBoard(SudokuSolver sudokuSolver) {
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
                 board[i][j] = new SudokuField();
@@ -38,6 +38,10 @@ public class SudokuBoard implements Serializable {
             board[col][row].setFieldValue(value);
             notifySubscribers(col, row, value);
         }
+    }
+
+    public SudokuField getField(int x, int y) {
+        return board[x][y];
     }
 
     public SudokuRow getRow(int row) {
@@ -174,5 +178,15 @@ public class SudokuBoard implements Serializable {
                 .toHashCode();
     }
 
+    @Override
+    public SudokuBoard clone() {
+        SudokuBoard boardClone = new SudokuBoard(sudokuSolver.clone());
 
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                boardClone.board[i][j] = board[i][j].clone();
+            }
+        }
+        return boardClone;
+    }
 }

@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 import java.util.List;
 
@@ -14,5 +14,10 @@ public class SudokuColumn extends SudokuSubGrid implements SudokuSubscriber {
             set(row, value);
             verify();
         }
+    }
+
+    @Override
+    public SudokuColumn clone() {
+        return new SudokuColumn(getSudokuFields());
     }
 }

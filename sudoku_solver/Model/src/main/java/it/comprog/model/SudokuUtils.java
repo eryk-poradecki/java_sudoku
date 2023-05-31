@@ -1,4 +1,4 @@
-package it.comprog;
+package it.comprog.model;
 
 public final class SudokuUtils {
 

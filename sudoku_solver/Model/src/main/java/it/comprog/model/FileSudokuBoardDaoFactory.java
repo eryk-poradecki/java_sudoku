@@ -1,6 +1,4 @@
-package it.comprog;
-
-import java.io.File;
+package it.comprog.model;
 
 public class FileSudokuBoardDaoFactory implements SudokuBoardDaoFactory {
 
