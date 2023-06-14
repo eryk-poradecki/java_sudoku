@@ -1,5 +1,7 @@
 package it.comprog.model;
 
+import it.comprog.model.exceptions.SudokuIllegalFieldValueException;
+import it.comprog.model.exceptions.SudokuNullPointerException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -26,6 +28,8 @@ public class SudokuField implements Serializable, Cloneable, Comparable<SudokuFi
     public void setFieldValue(int value) {
         if (value >= 0 && value < 10) {
             this.value = value;
+        } else {
+            throw new SudokuIllegalFieldValueException();
         }
     }
 
@@ -70,7 +74,7 @@ public class SudokuField implements Serializable, Cloneable, Comparable<SudokuFi
     @Override
     public int compareTo(SudokuField sudokuField) {
         if (sudokuField == null) {
-            throw new NullPointerException("compared object is null");
+            throw new SudokuNullPointerException("compared object is null");
         }
         return Integer.compare(getFieldValue(), sudokuField.getFieldValue());
     }
