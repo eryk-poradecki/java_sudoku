@@ -1,7 +1,8 @@
 package it.comprog.model;
 
-import it.comprog.model.*;
 import org.junit.jupiter.api.Test;
+
+import it.comprog.model.exceptions.SudokuClassNotFoundException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -288,6 +289,17 @@ class SudokuBoardTest {
         sudokuBoard.set(0,0, 5);
         SudokuField sudokuField = new SudokuField(5);
         assertEquals(sudokuField.getFieldValue(), sudokuBoard.getField(0,0).getFieldValue());
+    }
+
+    @Test public void testClassNotFoundException() {
+        assertThrows(SudokuClassNotFoundException.class, () -> {
+            String className = "NonExistentClass";
+            try {
+                Class.forName(className);
+            } catch (ClassNotFoundException e) {
+                throw new SudokuClassNotFoundException("Class not found: " + className);
+            }
+        });
     }
 
 }

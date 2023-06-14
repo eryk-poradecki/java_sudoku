@@ -2,6 +2,8 @@ package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 
+import it.comprog.model.exceptions.SudokuIllegalArraySizeException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -154,6 +156,18 @@ class SudokuSubGridTest {
 
         assertNotEquals(cloneRow.get(3).getFieldValue(), sudokuRow.get(3).getFieldValue());
         assertNotEquals(cloneRow, sudokuRow);
+    }
+
+    @Test
+    public void testIllegalSizeException() {
+        int[] values = {1,2,3,4,5,6,7,8,9,5};
+
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[values.length]);
+        for (int i = 0; i < values.length; i++) {
+            sudokuFields.set(i, new SudokuField(values[i]));
+        }
+
+        assertThrows(SudokuIllegalArraySizeException.class, () -> new SudokuRow(sudokuFields));
     }
 
 }

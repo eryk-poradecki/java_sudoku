@@ -3,8 +3,8 @@ package it.comprog.model;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.FileNotFoundException;
-import java.io.ObjectInputStream;
+import it.comprog.model.exceptions.SudokuIoException;
+
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
@@ -42,7 +42,7 @@ class FileSudokuBoardDaoTest {
         String fileName = Paths.get(tempDir.toString(),"testReadThrowException.brd").toString();
 
         try (FileSudokuBoardDao fileDao = (FileSudokuBoardDao)sudokuFactory.getFileDao(fileName)) {
-            assertThrows(FileNotFoundException.class, fileDao::read);
+            assertThrows(SudokuIoException.class, fileDao::read);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

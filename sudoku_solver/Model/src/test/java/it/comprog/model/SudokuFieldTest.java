@@ -2,6 +2,9 @@ package it.comprog.model;
 
 import org.junit.jupiter.api.Test;
 
+import it.comprog.model.exceptions.SudokuNullPointerException;
+import it.comprog.model.exceptions.SudokuIllegalFieldValueException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuFieldTest {
@@ -19,10 +22,8 @@ class SudokuFieldTest {
     public void testSetGetValue_invalidValue(){
         SudokuField sudokuField = new SudokuField();
 
-        sudokuField.setFieldValue(-3);
-        assertNotEquals(-3, sudokuField.getFieldValue());
-        sudokuField.setFieldValue(12);
-        assertNotEquals(12, sudokuField.getFieldValue());
+        assertThrows(SudokuIllegalFieldValueException.class, () -> sudokuField.setFieldValue(-3));
+        assertThrows(SudokuIllegalFieldValueException.class, () -> sudokuField.setFieldValue(12));
     }
 
     @Test
@@ -78,6 +79,6 @@ class SudokuFieldTest {
         assertTrue(sudokuField.compareTo(lessField) > 0);
         assertTrue(sudokuField.compareTo(moreField) < 0);
         assertEquals(sudokuField.compareTo(equalField), 0);
-        assertThrows(NullPointerException.class, () -> sudokuField.compareTo(null));
+        assertThrows(SudokuNullPointerException.class, () -> sudokuField.compareTo(null));
     }
 }
