@@ -7,7 +7,7 @@ public class Messages {
 
     public static String getMessage(String messageKey, Locale locale) {
         return ResourceBundle
-                .getBundle("it.comprog.model.Messages", Locale.ENGLISH)
+                .getBundle("it.comprog.model.Messages", locale)
                 .getString(messageKey);
     }
 }
