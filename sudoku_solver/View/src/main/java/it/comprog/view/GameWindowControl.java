@@ -19,8 +19,14 @@ import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.function.UnaryOperator;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import static it.comprog.model.SudokuUtils.gridSize;
 
@@ -28,6 +34,29 @@ public class GameWindowControl {
     private SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
     private SudokuBoard sudokuBoardCopy;
     private Difficulty difficulty = new Difficulty();
+
+    private static final Logger LOGGER = Logger.getLogger(GameWindowControl.class.getName());
+
+    FileHandler logFile;
+
+    {
+        try {
+            ClassLoader classLoader = GameWindowControl.class.getClassLoader();
+            String configFilePath = "it/comprog/view/logging.properties";
+            URL configUrl = classLoader.getResource(configFilePath);
+
+            if (configUrl != null) {
+                LogManager.getLogManager().readConfiguration(configUrl.openStream());
+            }
+            else {
+                LOGGER.log(Level.SEVERE, "Unable to read logging properties");
+            }
+            logFile = new FileHandler("menu_logs.txt");
+            LOGGER.addHandler(logFile);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Unable to initialize log file");
+        }
+    }
 
     @FXML
     private GridPane sudokuGrid;
@@ -38,7 +67,11 @@ public class GameWindowControl {
         BoardCloner cloner = new BoardCloner(sudokuBoard);
         sudokuBoardCopy = cloner.createNewBoard();
         sudokuBoardCopy = difficulty.zeroNFields(sudokuBoardCopy, MenuWindowControl.getChosenDifficulty());
-        fill();
+        try {
+            fill();
+        } catch (NoSuchMethodException e) {
+            LOGGER.log(Level.SEVERE, "Unable to create JavaBeanIntegerProperty");
+        }
     }
 
     @FXML
@@ -52,9 +85,9 @@ public class GameWindowControl {
                 FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(file.getAbsolutePath());
                 fileSudokuBoardDao.write(sudokuBoardCopy);
             }
-            System.out.println("Board state saved");
+            LOGGER.log(Level.INFO, "Board state saved");
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Unable to save board state to file");
         }
     }
 
@@ -81,13 +114,11 @@ public class GameWindowControl {
                 sudokuBoardCopy = file.read();
                 updateBoardFromFile();
             }
-            System.out.println("Board state loaded from file");
+            LOGGER.log(Level.INFO, "Board state loaded from file");
         } catch (IOException e) {
-            System.out.println("Couldn't load file from board");
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Couldn't load file from board");
         } catch (ClassNotFoundException e) {
-            System.out.println("File doesn't contain a valid sudoku board");
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "File doesn't contain a valid sudoku board");
         }
     }
 

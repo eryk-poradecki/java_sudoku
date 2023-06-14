@@ -1,10 +1,11 @@
 package it.comprog.model;
 
-import java.io.IOException;
+import it.comprog.model.exceptions.SudokuClassNotFoundException;
+import it.comprog.model.exceptions.SudokuIoException;
 
 public interface Dao<T> {
 
-    T read() throws IOException, ClassNotFoundException;
+    T read() throws SudokuIoException, SudokuClassNotFoundException;
 
-    void write(T object) throws IOException;
+    void write(T object) throws SudokuIoException;
 }

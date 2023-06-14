@@ -7,10 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ListResourceBundle;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class MenuWindowControl implements Initializable {
@@ -21,6 +25,19 @@ public class MenuWindowControl implements Initializable {
     private ComboBox<String> language;
     private static String chosenDifficulty;
     private ResourceBundle chosenBundle;
+
+    private static final Logger LOGGER = Logger.getLogger(MenuWindowControl.class.getName());
+
+    FileHandler logFile;
+
+    {
+        try {
+            logFile = new FileHandler("menu_logs.txt");
+            LOGGER.addHandler(logFile);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Unable to initialize log file");
+        }
+    }
 
     @FXML
     private Label author = new Label();
@@ -33,7 +50,7 @@ public class MenuWindowControl implements Initializable {
         } else {
             chosenDifficulty = "Easy";
         }
-        System.out.println("Game started! Difficulty: " + chosenDifficulty);
+        LOGGER.log(Level.INFO, "Game started! Difficulty: " + chosenDifficulty);
         SceneManager.showStage("GameWindow.fxml", chosenBundle);
     }
 

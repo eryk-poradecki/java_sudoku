@@ -1,5 +1,8 @@
 package it.comprog.model;
 
+import it.comprog.model.exceptions.SudokuClassNotFoundException;
+import it.comprog.model.exceptions.SudokuIoException;
+
 import java.io.*;
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
@@ -11,28 +14,30 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     }
 
     @Override
-    public SudokuBoard read() throws ClassNotFoundException, IOException {
+    public SudokuBoard read() throws SudokuClassNotFoundException, SudokuIoException {
         SudokuBoard sudokuBoard;
         try (
                 FileInputStream f = new FileInputStream(fileName);
                 ObjectInputStream o = new ObjectInputStream(f)
         ) {
             sudokuBoard = (SudokuBoard) o.readObject();
-        } catch (ClassNotFoundException | IOException e) {
-            throw e;
+        } catch (ClassNotFoundException e) {
+            throw new SudokuClassNotFoundException(e.getMessage());
+        } catch (IOException e) {
+            throw new SudokuIoException(e.getMessage());
         }
 
         return sudokuBoard;
     }
 
     @Override
-    public void write(SudokuBoard sudokuBoard) throws IOException {
+    public void write(SudokuBoard sudokuBoard) throws SudokuIoException {
         File file = new File(fileName);
         if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                throw e;
+                throw new SudokuIoException(e.getMessage());
             }
         }
 
@@ -42,7 +47,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
         ) {
             o.writeObject(sudokuBoard);
         } catch (IOException e) {
-            throw e;
+            throw new SudokuIoException(e.getMessage());
         }
     }
 

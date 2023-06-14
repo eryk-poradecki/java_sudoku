@@ -1,5 +1,6 @@
 package it.comprog.model;
 
+import it.comprog.model.exceptions.SudokuIllegalArraySizeException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -19,6 +20,9 @@ public abstract class SudokuSubGrid implements Cloneable {
     private boolean valid;
 
     public SudokuSubGrid(List<SudokuField> sudokuFields) {
+        if (sudokuFields.size() != 9) {
+            throw new SudokuIllegalArraySizeException();
+        }
         this.sudokuFields = new ArrayList<>(sudokuFields);
         verify();
     }
